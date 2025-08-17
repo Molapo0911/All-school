@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Doc Shebeleza">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <link href="style.css" type="text/css" rel="stylesheet">
+  <style>
+    .admin-card {
+      max-width: 400px;
+      margin: 5% auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+    table {
+      width: 90%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0px 3px 12px rgba(0,0,0,0.2);
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background: #4CAF50;
+      color: #fff;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ADMIN LOGIN -->
+  <div id="admin-login" class="admin-card">
+    <h2>Admin Login</h2>
+    <input type="text" id="admin-username" placeholder="Username" required><br><br>
+    <input type="password" id="admin-password" placeholder="Password" required><br><br>
+    <button onclick="loginAdmin()">Log In</button>
+    <p id="error-message" style="color:red; display:none;">Invalid credentials!</p>
+  </div>
+
+  <!-- ADMIN DASHBOARD -->
+  <div id="admin-dashboard" style="display:none;">
+    <h2 style="text-align:center;">Registered Students</h2>
+    <table id="students-table">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Student ID</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <p style="text-align:center;"><button onclick="logoutAdmin()">Log Out</button></p>
+  </div>
+
+  <script>
+    // ADMIN LOGIN
+    function loginAdmin() {
+      const username = document.getElementById("admin-username").value;
+      const password = document.getElementById("admin-password").value;
+
+      if(username === "admin" && password === "admin123") {
+        document.getElementById("admin-login").style.display = "none";
+        document.getElementById("admin-dashboard").style.display = "block";
+        loadStudents();
+      } else {
+        document.getElementById("error-message").style.display = "block";
+      }
+    }
+
+    // LOGOUT
+    function logoutAdmin() {
+      document.getElementById("admin-dashboard").style.display = "none";
+      document.getElementById("admin-login").style.display = "block";
+      document.getElementById("admin-username").value = "";
+      document.getElementById("admin-password").value = "";
+    }
+
+    // LOAD STUDENTS
+    function loadStudents() {
+      const students = JSON.parse(localStorage.getItem("students")) || [];
+      const tbody = document.querySelector("#students-table tbody");
+      tbody.innerHTML = "";
+
+      students.forEach(s => {
+        const row = `<tr>
+          <td>${s.name}</td>
+          <td>${s.email}</td>
+          <td>${s.studentId}</td>
+        </tr>`;
+        tbody.innerHTML += row;
+      });
+    }
+  </script>
+
+</body>
+</html>

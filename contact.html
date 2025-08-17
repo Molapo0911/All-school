@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Doc Shebeleza">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link href="style.css" type="text/css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #4CAF50, #2196F3);
+      color: #fff;
+      animation: fadeIn 1s ease-in-out;
+    }
+    header nav {
+      background: rgba(0,0,0,0.6);
+      padding: 15px;
+      text-align: center;
+    }
+    header nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    header nav a:hover {
+      color: yellow;
+    }
+    .contact-container {
+      max-width: 800px;
+      margin: 50px auto;
+      background: rgba(255,255,255,0.1);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+      animation: slideUp 1s ease-in-out;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #FFD700;
+    }
+    form {
+      display: grid;
+      gap: 15px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+    button {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #FFD700;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.3s;
+    }
+    button:hover {
+      transform: scale(1.05);
+      background: #FFC107;
+    }
+    .details {
+      margin-top: 30px;
+      text-align: center;
+      color: #fff;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+      background: rgba(0,0,0,0.6);
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    @keyframes slideUp {
+      from {transform: translateY(40px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="webpage.html">Matric Dance</a>
+      <a href="admin.html">Admin</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="contact-container">
+    <h1>Contact Us</h1>
+    <form id="contact-form">
+      <input type="text" placeholder="Your Full Name" required>
+      <input type="email" placeholder="Your Email Address" required>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="details">
+      <p><strong>Email:</strong> info@bodibengschool.com</p>
+      <p><strong>Phone:</strong> +27 56 456 7890</p>
+      <p><strong>Address:</strong> 123 School Road, Free State, South Africa</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Bodibeng Official. All Rights Reserved.
+  </footer>
+
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Thank you! Your message has been sent successfully.");
+      this.reset();
+    });
+  </script>
+</body>
+</html>

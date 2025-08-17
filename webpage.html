@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Doc Shebeleza">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matric Dance</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="webpage.html">Matric Dance</a>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <section id="intro-two">
+                <h1>To the Matric Class of 2024 (Phoenix)</h1>
+                <p>
+                    You have powered through challenges, adapted to change, and shown what it means to be strong, focused, and driven. 
+                    Last year may have tested you, but you have come out on top with lessons, memories, and achievements that will stay with you forever. 
+                    The future is wide open and yours to shape. Congratulations, Class of 2024 — your journey is just beginning!
+                </p>
+            </section>
+
+            <section id="photos">
+                <div class="gallery">
+                    <div>
+                        <img src="1755424596615.jpg" alt="Matric Dance Photo 1">
+                    </div>
+                    <div>
+                        <img src="1755424718810.jpg" alt="Matric Dance Photo 2">
+                    </div>
+                    <div>
+                        <img src="matric 3.jpg" alt="Matric Dance Photo 3">
+                    </div>
+                    <div>
+                        <img src="matric 4.jpg" alt="Matric Dance Photo 4">
+                    </div>
+					<div>
+                        <img src="1755424726453.jpg" alt="Matric Dance Photo 5">
+                    </div>
+                </div>
+            </section>
+
+            <section id="link">
+                <a href="https://youtu.be/P1DWk_845ds?si=MrIHoSPZjUNbFaRK" target="_blank" rel="noopener noreferrer">
+                    Click here to know more about our matric dance
+                </a>
+            </section>
+        </article>
+    </main>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const reveals = document.querySelectorAll(".gallery div, #link, footer");
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        reveals.forEach(el => {
+            el.classList.add("reveal");
+            observer.observe(el);
+        });
+    });
+    </script>
+
+    <footer>&copy; 2025 BODIBENG Official</footer>
+</body>
+</html>
